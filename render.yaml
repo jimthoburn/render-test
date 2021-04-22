@@ -1,0 +1,33 @@
+services:
+# A static site
+- type: web
+  name: static-test-site
+  env: static
+  buildCommand: #
+  staticPublishPath: ./
+  pullRequestPreviewsEnabled: true     # optional
+  headers:
+  - path: /*
+    name: X-Frame-Options
+    value: sameorigin
+  routes:
+  - type: redirect
+    source: /old
+    destination: /new
+  - type: rewrite
+    source: /a/*
+    destination: /a
+
+envVarGroups:
+- name: conc-settings
+  envVars:
+  - key: CONCURRENCY
+    value: 2
+  - key: SECRET
+    generateValue: true
+  - key: USER_PROVIDED_SECRET
+    sync: false
+- name: stripe
+  envVars:
+  - key: STRIPE_API_URL
+    value: https://api.stripe.com/v2
