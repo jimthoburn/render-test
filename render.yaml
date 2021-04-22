@@ -3,7 +3,7 @@ services:
 - type: web
   name: static-test-site
   env: static
-  buildCommand: #
+  buildCommand: "#"
   staticPublishPath: ./
 
 envVarGroups:
@@ -11,3 +11,5 @@ envVarGroups:
   envVars:
   - key: STRIPE_API_URL
     value: https://api.stripe.com/v2
+  - key: MY_SECRET
+    value: "mysecretvalue"
