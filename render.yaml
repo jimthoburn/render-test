@@ -13,3 +13,5 @@ envVarGroups:
     value: https://api.stripe.com/v2
   - key: MY_SECRET
     value: "mysecretvalue"
+  - key: MY_OTHER SECRET
+    value: "mysecretvalue"
