@@ -5,7 +5,15 @@ services:
   env: static
   buildCommand: "#"
   staticPublishPath: ./
-  # A Ruby web service
+  envVars:
+    - key: STRIPE_API_KEY
+      value: Z2V0IG91dHRhIGhlcmUhCg
+    # This environment variable is not valid, since a database named `giraffe` is not included in this render.yaml file
+    - key: DB_URL_2
+      fromDatabase:
+        name: giraffe
+        property: connectionString
+# A Ruby web service
 - type: web
   name: sinatra
   env: ruby
@@ -32,11 +40,6 @@ services:
         type: pserv
         name: redis
         envVarKey: GENERATED_SECRET
-    # This environment variable is not valid, since a database named `giraffe` is not included in this render.yaml file
-    - key: DB_URL_2
-      fromDatabase:
-        name: giraffe
-        property: connectionString
   autoDeploy: false # optional
 
 envVarGroups:
