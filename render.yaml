@@ -6,14 +6,11 @@ services:
   staticPublishPath: ./
 # A Ruby web service
 - type: web
-  name: sinatra
+  name: another-ruby-test-site
   env: ruby
   repo: https://github.com/render-examples/sidekiq
   buildCommand: bundle install
   startCommand: bundle exec ruby main.rb
-  domains:
-    - test0.render.com
-    - test1.render.com
   envVars:
     # This environment variable is not valid, since a database named `giraffe` is not included in this render.yaml file
     - key: DB_URL_2
