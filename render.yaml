@@ -122,6 +122,12 @@ envVarGroups:
         generateValue: true
       - key: USER_PROVIDED_SECRET
         sync: false
+      # This automatic value is not valid since `fromService` isn’t available for an environment group
+      - key: REDIS_HOST
+        fromService:
+          name: redis
+          type: pserv
+          property: host # available properties are listed below
   - name: stripe
     envVars:
       - key: STRIPE_API_URL
