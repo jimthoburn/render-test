@@ -41,7 +41,7 @@ services:
   - type: web
     name: sinatra
     env: ruby
-    repo: https://github.com/renderinc/sinatra-example.git
+    repo: https://github.com/render-examples/sidekiq
     scaling:
       minInstances: 1
       maxInstances: 3
@@ -65,14 +65,14 @@ services:
           name: redis
           envVarKey: GENERATED_SECRET
     autoDeploy: false # optional
-  # A Python cron job that runs every hour
+  # A Ruby cron job that runs every hour
   - type: cron
     name: date
-    env: python
+    env: ruby
     schedule: "0 * * * *"
     buildCommand: "true" # ensure it's a string
     startCommand: date
-    repo: https://github.com/render-examples/docker.git # optional
+    repo: https://github.com/render-examples/ruby-cron-job # optional
   # A background worker that consumes a queue
   - type: worker
     name: queue
