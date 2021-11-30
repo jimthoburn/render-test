@@ -5,6 +5,14 @@ services:
   env: static
   buildCommand: "#"
   staticPublishPath: ./
+  envVars:
+    - key: GENERATED_SECRET
+      generateValue: true # will generate a base64-encoded 256-bit secret
+    # This environment variable is not valid, since a database named `giraffe` is not included in this render.yaml file
+    - key: DB_URL_2
+      fromDatabase:
+        name: giraffe
+        property: connectionString
 
 envVarGroups:
 - name: stripe
