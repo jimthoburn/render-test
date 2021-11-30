@@ -18,7 +18,7 @@ services:
           type: pserv
           property: host # available properties are listed below
       - key: REDIS_PORT
-        fromService:
+        fromDatabase:
           name: redis
           type: pserv
           property: port
@@ -128,6 +128,11 @@ envVarGroups:
           name: redis
           type: pserv
           property: host # available properties are listed below
+      # This automatic value is not valid since `fromDatabase` isn’t available for an environment group
+      - key: DB_URL
+        fromDatabase:
+          name: elephant
+          property: connectionString
   - name: stripe
     envVars:
       - key: STRIPE_API_URL
