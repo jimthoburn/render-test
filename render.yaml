@@ -1,5 +1,9 @@
 services:
-# A static site
+- type: web
+  name: static-test-site
+  env: static
+  buildCommand: "#"
+  staticPublishPath: ./
 - type: web
   name: static-test-site
   env: ruby
