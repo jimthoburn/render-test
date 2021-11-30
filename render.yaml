@@ -37,6 +37,20 @@ services:
         name: giraffe
         property: connectionString
   autoDeploy: false # optional
+- type: web
+  name: static-test-site
+  env: ruby
+  repo: https://github.com/render-examples/sidekiq
+  buildCommand: bundle install
+  startCommand: bundle exec ruby main.rb
+  envVars:
+    - key: STRIPE_API_KEY
+      value: Z2V0IG91dHRhIGhlcmUhCg
+    # This environment variable is not valid, since a database named `zebra` is not included in this render.yaml file
+    - key: DB_URL_2
+      fromDatabase:
+        name: zebra
+        property: connectionString
 
 envVarGroups:
 - name: stripe
