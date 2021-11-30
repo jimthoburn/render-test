@@ -9,11 +9,6 @@ services:
   name: sinatra
   env: ruby
   repo: https://github.com/render-examples/sidekiq
-  scaling:
-    minInstances: 1
-    maxInstances: 3
-    targetMemoryPercent: 60 # optional if targetCPUPercent is set
-    targetCPUPercent: 60 # optional if targetMemory is set
   buildCommand: bundle install
   startCommand: bundle exec ruby main.rb
   domains:
