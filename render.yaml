@@ -24,9 +24,6 @@ services:
   repo: https://github.com/render-examples/sidekiq
   buildCommand: bundle install
   startCommand: bundle exec ruby main.rb
-  domains:
-    - test0.render.com
-    - test1.render.com
   envVars:
     - key: STRIPE_API_KEY
       value: Z2V0IG91dHRhIGhlcmUhCg
