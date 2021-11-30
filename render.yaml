@@ -5,14 +5,39 @@ services:
   env: static
   buildCommand: "#"
   staticPublishPath: ./
+  # A Ruby web service
+- type: web
+  name: sinatra
+  env: ruby
+  repo: https://github.com/render-examples/sidekiq
+  scaling:
+    minInstances: 1
+    maxInstances: 3
+    targetMemoryPercent: 60 # optional if targetCPUPercent is set
+    targetCPUPercent: 60 # optional if targetMemory is set
+  buildCommand: bundle install
+  startCommand: bundle exec ruby main.rb
+  domains:
+    - test0.render.com
+    - test1.render.com
   envVars:
-    - key: GENERATED_SECRET
-      generateValue: true # will generate a base64-encoded 256-bit secret
+    - key: STRIPE_API_KEY
+      value: Z2V0IG91dHRhIGhlcmUhCg
+    - key: DB_URL
+      fromDatabase:
+        name: elephant
+        property: connectionString
+    - key: REDIS_SECRET
+      fromService:
+        type: pserv
+        name: redis
+        envVarKey: GENERATED_SECRET
     # This environment variable is not valid, since a database named `giraffe` is not included in this render.yaml file
     - key: DB_URL_2
       fromDatabase:
         name: giraffe
         property: connectionString
+  autoDeploy: false # optional
 
 envVarGroups:
 - name: stripe
