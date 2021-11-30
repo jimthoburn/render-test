@@ -20,17 +20,6 @@ services:
     - test0.render.com
     - test1.render.com
   envVars:
-    - key: STRIPE_API_KEY
-      value: Z2V0IG91dHRhIGhlcmUhCg
-    - key: DB_URL
-      fromDatabase:
-        name: elephant
-        property: connectionString
-    - key: REDIS_SECRET
-      fromService:
-        type: pserv
-        name: redis
-        envVarKey: GENERATED_SECRET
     # This environment variable is not valid, since a database named `giraffe` is not included in this render.yaml file
     - key: DB_URL_2
       fromDatabase:
