@@ -3,7 +3,6 @@ services:
 - type: web
   name: static-test-site
   env: static
-  buildCommand: "#"
   staticPublishPath: ./
 
 envVarGroups:
