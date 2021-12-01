@@ -1,4 +1,8 @@
 services:
+- name: project-settings
+  envVars:
+    - key: PASSPHRASE
+      sync: false # placeholder for a value to be added in the dashboard
 # A static site
 - type: web
   name: static-test-site
