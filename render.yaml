@@ -8,9 +8,13 @@ services:
   - fromGroup: project-settings
   - key: MY_KEY
     value: "my_value"
+  - key: SECRET_KEY
+    sync: false # placeholder for a value to be added in the dashboard
 
 envVarGroups:
 - name: project-settings
   envVars:
   - key: MY_OTHER_KEY
     value: "my_other_value"
+  - key: ANOTHER_SECRET_KEY
+    sync: false # placeholder for a value to be added in the dashboard
