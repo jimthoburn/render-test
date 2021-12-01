@@ -4,11 +4,13 @@ services:
   name: static-test-site
   env: static
   staticPublishPath: ./
+  envVars:
+  - fromGroup: project-settings
+  - key: MY_KEY
+    value: "my_value"
 
 envVarGroups:
-- name: stripe
+- name: project-settings
   envVars:
-  - key: STRIPE_API_URL
-    value: https://api.stripe.com/v2
-  - key: MY_SECRET
-    value: "mysecretvalue"
+  - key: MY_OTHER_KEY
+    value: "my_other_value"
