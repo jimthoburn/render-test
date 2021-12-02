@@ -1,3 +1,5 @@
+# https://render.com/docs/preview-environments#environment-variables
+previewsEnabled: true
 services:
 # A static site
 - type: web
@@ -5,16 +7,20 @@ services:
   env: static
   staticPublishPath: ./
   envVars:
-  - fromGroup: project-settings
   - key: MY_KEY
-    value: "my_value"
-  - key: SECRET_KEY
-    sync: false # placeholder for a value to be added in the dashboard
+    value: "my_key_value"
+  # Will not be copied!
+  # Value for MY_API_KEY provided in dashboard will not be copied to preview environments
+  - key: MY_API_KEY
+    sync: false
 
+  # Will be copied
+  # USER_PROVIDED_SECRET will be copied to preview environments
+  - fromGroup: all-settings
 envVarGroups:
-- name: project-settings
+- name: all-settings
   envVars:
   - key: MY_OTHER_KEY
-    value: "my_other_value"
-  - key: ANOTHER_SECRET_KEY
-    sync: false # placeholder for a value to be added in the dashboard
+    value: "my_other_key_value"
+  - key: USER_PROVIDED_SECRET
+    sync: false
