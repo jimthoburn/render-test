@@ -25,3 +25,4 @@ envVarGroups:
     value: "my_other_key_value"
   - key: USER_PROVIDED_SECRET
     sync: false
+
