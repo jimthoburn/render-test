@@ -6,6 +6,7 @@ services:
   name: static-test-site
   env: static
   staticPublishPath: ./
+  pullRequestPreviewsEnabled: true
   envVars:
   - key: MY_KEY
     value: "my_key_value"
