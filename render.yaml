@@ -10,9 +10,13 @@ services:
   envVars:
   - key: MY_KEY
     value: "my_key_value"
+  - key: MY_OTHER_KEY
+    value: "my_other_key_value"
   # Will not be copied!
   # Value for MY_API_KEY provided in dashboard will not be copied to preview environments
   - key: MY_API_KEY
+    sync: false
+  - key: MY_OTHER_API_KEY
     sync: false
 
   # Will be copied
