@@ -12,11 +12,15 @@ services:
     value: "my_key_value"
   - key: MY_OTHER_KEY
     value: "my_other_key_value"
+  - key: MY_OTHER_KEY_2
+    value: "my_other_key_value_2"
   # Will not be copied!
   # Value for MY_API_KEY provided in dashboard will not be copied to preview environments
   - key: MY_API_KEY
     sync: false
   - key: MY_OTHER_API_KEY
+    sync: false
+  - key: MY_OTHER_API_KEY_2
     sync: false
 
   # Will be copied
