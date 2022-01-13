@@ -3,7 +3,7 @@ previewsEnabled: true
 services:
 # A static site
 - type: web
-  name: static-test-site
+  name: static-test-site-3
   env: static
   staticPublishPath: ./
   pullRequestPreviewsEnabled: true
@@ -27,7 +27,7 @@ services:
   # USER_PROVIDED_SECRET will be copied to preview environments
   - fromGroup: all-settings
 envVarGroups:
-- name: all-settings
+- name: all-settings-3
   envVars:
   - key: MY_OTHER_KEY
     value: "my_other_key_value"
