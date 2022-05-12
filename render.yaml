@@ -5,3 +5,9 @@ services:
   name: static-test-site
   env: static
   staticPublishPath: ./
+- type: cron
+  name: cron-test
+  env: python
+  region: oregon
+  schedule: "0 5 * * *"
+  startCommand: "bash ./hello.sh"
