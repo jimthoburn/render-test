@@ -1,3 +1,4 @@
+envVarGroups:
 - name: conc-settings
   envVars:
     - key: CONCURRENCY
