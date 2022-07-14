@@ -1,35 +1,8 @@
-# https://render.com/docs/preview-environments#environment-variables
-previewsEnabled: true
-services:
-# A static site
-- type: web
-  name: static-test-site
-  env: static
-  staticPublishPath: ./
-  pullRequestPreviewsEnabled: true
+- name: conc-settings
   envVars:
-  - key: MY_KEY
-    value: "my_key_value"
-  - key: MY_OTHER_KEY
-    value: "my_other_key_value"
-  - key: MY_OTHER_KEY_2
-    value: "my_other_key_value_2"
-  # Will not be copied!
-  # Value for MY_API_KEY provided in dashboard will not be copied to preview environments
-  - key: MY_API_KEY
-    sync: false
-  - key: MY_OTHER_API_KEY
-    sync: false
-  - key: MY_OTHER_API_KEY_2
-    sync: false
-
-  # Will be copied
-  # USER_PROVIDED_SECRET will be copied to preview environments
-  - fromGroup: all-settings
-envVarGroups:
-- name: all-settings
-  envVars:
-  - key: MY_OTHER_KEY
-    value: "my_other_key_value"
-  - key: USER_PROVIDED_SECRET
-    sync: false
+    - key: CONCURRENCY
+      value: 2
+    - key: SECRET
+      generateValue: true
+    - key: USER_PROVIDED_SECRET
+      sync: false
