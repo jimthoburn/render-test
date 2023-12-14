@@ -1,5 +1,5 @@
 # https://render.com/docs/preview-environments#environment-variables
-previewsEnabled: true
+previewsEnabled: false
 services:
 # A static site
 - type: web
