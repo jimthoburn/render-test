@@ -25,7 +25,7 @@ services:
 
   # Will be copied
   # USER_PROVIDED_SECRET will be copied to preview environments
-  - fromGroup: all-settings
+  # - fromGroup: all-settings
 envVarGroups:
 - name: all-settings-3
   envVars:
